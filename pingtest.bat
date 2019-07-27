@@ -1,4 +1,4 @@
-@rem Hallo
+@rem Hallo Echo
 @echo off
 echo.
 echo Dauerping auf %1 ...
