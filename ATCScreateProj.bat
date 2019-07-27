@@ -57,8 +57,11 @@ echo  "
 echo.
 echo So we need 3 git projects cloned:
 echo   1. The ATCS sources  (Git clone of the ATCS project)
+echo        e.g.  %ATCS_GIT%   %AT_SRCDIR%:master
 echo   2. The actual game sources  (Git clone of Zukero's AT version)
+echo        e.g.  %AT_SRCGIT%   %AT_SRCDIR%:master
 echo   3. The target game source for Android Studio compile  (Git clone of your forked AT version)
+echo        e.g.  %AT_TGTGIT%   %AT_TGTDIR%:%1
 echo.
 
 
@@ -109,7 +112,8 @@ rem  So we have to rename it temporarily
 ren %ATCS_BASE%%1\ATCS ATCS_999
 
 echo.
-echo TODO: Clone ATCS version  %ATCS_GIT%  to  local path %ATCS_BASE%%1\ATCS\%1
+echo TODO: Clone ATCS version e.g.  "%ATCS_GIT%"
+echo       to local path  "%ATCS_BASE%%1\ATCS\%1"
 pause
 if not exist %ATCS_DIR%.  (
 echo.

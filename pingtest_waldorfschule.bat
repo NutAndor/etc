@@ -1,0 +1,1 @@
+pingtest.bat  owa.waldorfschule-og.de
