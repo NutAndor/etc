@@ -1,0 +1,43 @@
+Rough ideas
+===========
+Limping villager
+Location: South of Stoutford
+
+Andors spies
+Location: South of Stoutford
+zwei NPC die versuchen, Andors Verfolger zu vergraulen
+
+Burhcyc
+Location: Several pups
+
+Beggar children
+Location: Nor City
+Many children (20?) keep respawning and ask for bakshish.
+If you kill some, other stronger NPC come for help
+
+Boat on the lake
+Location: Remgard lake
+
+Tavernenraufbolde
+
+Quest: Bäume fällen
+
+Ratdom
+
+Eigenes Haus bauen
+
+Dealer in Stoutford tower
+
+etc
+===
+Lutarcs Medaillon should get a description
+
+engine
+======
+random function
+
+score function
+
+mapchange via script
+
+sleep via script
