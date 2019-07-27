@@ -1,3 +1,4 @@
+@rem Hallo
 @echo off
 echo.
 echo Dauerping auf %1 ...
