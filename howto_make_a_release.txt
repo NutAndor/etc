@@ -1,0 +1,219 @@
+
+Prepare the environment
+=======================
+
+- (Only on creation of the release version:) Merge weblate repo in  zukero/andors-trail:master  
+
+- (Only on creation of the release version:) Lock the weblate repo, to prevent loss of translations.
+
+- If not done already, fork  zukero/andors-trail  to  NutAndor/andors-trail
+
+- Check if the fork NutAndor/andors-trail:master is actual comparing to zukero/andors-trail:master
+	https://github.com/NutAndor/andors-trail/compare/master...Zukero:master
+	If necessary, do a Pull Request to get actual
+
+- Set git projects
+	Switch to branch NutAndor/andors-trail:v076
+	Switch to branch NutAndor/v076:master
+
+
+Simple build of the APK
+=======================
+
+- Build the version
+	Open ATCS with version v076
+	Export project into game source folder  NutAndor/andors-trail
+
+	Open AndroidStudio
+	Compile NutAndor/andors-trail
+
+- Actualize PO files
+	Use ATCS' beanshell console to update the .po and .pot files (in assets/translation/) using the new list of translatable text extracted from the JSON and worldmap data. See the PotComparator class comment in ATCS source code.
+	This involves some decision making in case the english text for a given resource changed. 
+		"Typo" means the existing translations must be preserved. 
+		"Review" means the existing translations must be preserved, but prefixed with "[REVIEW]" (tag removed, and translation used in-game) to alert the translators that they may need to revise their translation to reflect the english changes. 
+		"Outdated" means the existing translations aren't valid anymore. They will be prefixed with "[OUTDATED]" (translation NOT used in-game) to alert the translators that they must change their translation, yet we do not delete the previous translation completely from weblate (it could be a useful reference). 
+		"None" means that we completely delete the old translations.	
+	
+	Run the following  (see  C:\AT\Zukero\ATCS\src\com\gpl\rpg\atcontentstudio\model\tools\i18n\PotComparator.java)
+		import com.gpl.rpg.atcontentstudio.model.Workspace;
+		import com.gpl.rpg.atcontentstudio.model.tools.i18n.PotGenerator;
+		import com.gpl.rpg.atcontentstudio.model.tools.i18n.PotComparator;
+		 
+		proj = Workspace.activeWorkspace.projects.get(0);
+		PotGenerator.generatePotFileForProject(proj);
+		comp = new PotComparator(proj);
+		comp.compare();
+		comp.updatePoFiles(proj);
+		
+	Remove .mo .po and .pot files from  C:\AT\NutAndor\andors-trail\AndorsTrail\assets\translation
+	Copy .po and .pot files from  C:\AT\ATCS\v076\ATCS\v076\altered  to  C:\AT\NutAndor\andors-trail\AndorsTrail\assets\translation
+		In a CMD session:
+			set T=C:\AT\NutAndor\andors-trail\AndorsTrail\assets\translation
+			set A=C:\AT\ATCS\v076\ATCS\v076\altered
+			del "%T%\*.mo"
+			del "%T%\*.po*"
+			copy "%A%\*.po*" "%T%\"
+
+- Create .mo files
+	In a CMD session:
+		FOR %F in ("C:\AT\NutAndor\andors-trail\AndorsTrail\assets\translation\*.po") DO "C:\Program Files (x86)\Poedit\GettextTools\bin\msgfmt.exe" -o %~dpnF.mo %~F
+
+-  Set version number
+	in AndorsTrailApplication.java
+	in manifest.xml
+
+
+Compression
+===========
+Do these steps when you plan to build a release:
+	
+- Create a new ATCS project: compress 
+	Create directory if not yet exists  C:\AT\ATCS\beta\ATCS
+	Delete  C:\AT\ATCS\beta\ATCS\beta
+	ATCS: New workspace  C:\AT\ATCS\beta\ATCS
+	Create project  beta   AT source  C:\AT\NutAndor\andors-trail\AndorsTrail
+
+- compress resources
+	Use ATCS' beanshell console to generate the compressed resources (JSON, spritesheets, tmx files). 
+	(Attention: "Minify.class" must be found via classpath. For this I had to compile Minify.java and add the path in ATCS.cmd)
+		Run the following  (see  C:\AT\Zukero\ATCS\src\com\gpl\rpg\atcontentstudio\model\tools\resoptimizer\ResourcesCompactor.java)
+			import com.gpl.rpg.atcontentstudio.model.tools.resoptimizer.ResourcesCompactor;
+			import com.gpl.rpg.atcontentstudio.model.Workspace;
+			proj = Workspace.activeWorkspace.projects.get(0);
+			new ResourcesCompactor(proj).compactData();
+
+	Close ATCS again.
+	Delete the old resources, and replace with the compressed ones
+		rem JSON:
+			set A=C:\AT\ATCS\beta\ATCS\beta\compressed\res
+			set F=C:\AT\NutAndor\andors-trail\AndorsTrail\res
+			del "%F%\raw\*.json"
+			copy "%A%\raw\*.json" "%F%\raw\"
+			echo [] > "%F%\raw\actorconditions_debug.json"
+			echo [] > "%F%\raw\conversationlist_debug.json"
+			echo [] > "%F%\raw\droplists_debug.json"
+			echo [] > "%F%\raw\itemlist_debug.json"
+			echo [] > "%F%\raw\monsterlist_debug.json"
+			echo [] > "%F%\raw\questlist_debug.json"
+			echo [] > "%F%\raw\itemlist_pre0610_unused.json"
+		rem
+		rem TMX:
+			del "%F%\xml\*.tmx"
+			copy "%A%\xml\*.tmx" "%F%\xml\"
+			echo ^<?xml version="1.0" encoding="UTF-8"?^>^<map version="1.0" orientation="orthogonal" renderorder="right-down" width="18" height="18" tilewidth="32" tileheight="32" nextobjectid="18"^>^</map^> > "%F%\xml\debugmap.tmx"
+		rem
+		rem PNG:
+		rem map_dynamic_placeholders  monsters_eye4  monsters_demon1  monsters_demon2  muss bleiben!
+			ren "%F%\drawable\map_dynamic_placeholders.png"  "map_dynamic_placeholders.bak"
+			ren "%F%\drawable\monsters_eye4.png"             "monsters_eye4.bak"
+			ren "%F%\drawable\monsters_demon1.png"           "monsters_demon1.bak"
+			ren "%F%\drawable\monsters_demon2.png"           "monsters_demon2.bak"
+			del "%F%\drawable\map_*.png"
+			del "%F%\drawable\actorcond*.png"
+			del "%F%\drawable\items*.png"
+			del "%F%\drawable\monsters*.png"
+			copy "%A%\drawable\*.png" "%F%\drawable\"
+			ren "%F%\drawable\map_dynamic_placeholders.bak"  "map_dynamic_placeholders.png"
+			ren "%F%\drawable\monsters_eye4.bak"             "monsters_eye4.png"
+			ren "%F%\drawable\monsters_demon1.bak"           "monsters_demon1.png"
+			ren "%F%\drawable\monsters_demon2.bak"           "monsters_demon2.png"
+
+- Actualize Resourceloader.java
+
+	Remove the PNG defitions:
+	- Every  ACTORCONDITIONS_TILESETS
+	- Every  ITEMS_TILESETS
+	- Every  NPC-TILESETS  except:
+		loader.prepareTileset(R.drawable.monsters_demon1, "monsters_demon1", sz1x1, sz2x2, mTileSize);
+		loader.prepareTileset(R.drawable.monsters_demon2, "monsters_demon2", sz1x1, sz2x2, mTileSize);
+		loader.prepareTileset(R.drawable.monsters_eye4, "monsters_eye4", sz1x1, sz1x1, mTileSize);
+	- Every  MAP_TILESETS,
+	
+	Then enter the compresses PNG definitions:
+		final Size sz8x8 = new Size(8, 8);
+	and	the compressed new .png files, like:
+		FOR %F in ("C:\AT\ATCS\beta\ATCS\beta\compressed\res\drawable\map_*.png") DO @echo loader.prepareTileset(R.drawable.%~nF, "%~nF", sz8x8, sz1x1, mTileSize);
+		FOR %F in ("C:\AT\ATCS\beta\ATCS\beta\compressed\res\drawable\obj_*.png") DO @echo loader.prepareTileset(R.drawable.%~nF, "%~nF", sz8x8, sz1x1, mTileSize);
+		@echo.
+
+		loader.prepareTileset(R.drawable.map_0, "map_0", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_1, "map_1", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_2, "map_2", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_3, "map_3", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_4, "map_4", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_5, "map_5", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_6, "map_6", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_7, "map_7", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_8, "map_8", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_9, "map_9", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_10, "map_10", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_11, "map_11", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_12, "map_12", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_13, "map_13", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_14, "map_14", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_15, "map_15", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_16, "map_16", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_17, "map_17", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_18, "map_18", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_19, "map_19", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_20, "map_20", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_21, "map_21", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_22, "map_22", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_23, "map_23", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_24, "map_24", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_25, "map_25", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_26, "map_26", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_27, "map_27", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_28, "map_28", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_29, "map_29", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_30, "map_30", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_31, "map_31", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_32, "map_32", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_33, "map_33", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_34, "map_34", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_35, "map_35", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_36, "map_36", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_37, "map_37", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_38, "map_38", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_39, "map_39", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_40, "map_40", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.map_41, "map_41", sz8x8, sz1x1, mTileSize);
+		
+		loader.prepareTileset(R.drawable.obj_0, "obj_0", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.obj_1, "obj_1", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.obj_2, "obj_2", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.obj_3, "obj_3", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.obj_4, "obj_4", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.obj_5, "obj_5", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.obj_6, "obj_6", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.obj_7, "obj_7", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.obj_8, "obj_8", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.obj_9, "obj_9", sz8x8, sz1x1, mTileSize);
+		loader.prepareTileset(R.drawable.obj_10, "obj_10", sz8x8, sz1x1, mTileSize);
+
+
+- Update loadresources.xml
+	Restart ATCS
+	Export project into game source folder
+	Close ATCS again.
+
+	Check if .po files kept deleted
+		set T=C:\AT\NutAndor\andors-trail\AndorsTrail\assets\translation
+		del "%T%\*.po*"
+
+
+- Build open version		
+	Set normal boolean values in AndorsTrailApplication.java  (Everything to false)
+	Build with AS	
+	Upload .apk
+
+- Then build debug version		
+	Set boolean values in AndorsTrailApplication.java  (debug=true)
+	Build with AS	
+
+	
+Uploaded versions
+- possible VIP version:  http://www.rg-brille.de/etc/AT/AndorsTrail_076_v.apk
+- same, but with debug buttons:  http://www.rg-brille.de/etc/AT/AndorsTrail_076_20190905.apk
+

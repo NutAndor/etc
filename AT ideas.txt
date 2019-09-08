@@ -34,8 +34,6 @@ Lutarcs Medaillon should get a description
 
 engine
 ======
-random function
-
 score function
 
 mapchange via script
