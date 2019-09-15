@@ -14,7 +14,9 @@ Prepare the environment
 
 - Set git projects
 	Switch to branch NutAndor/andors-trail:v076
+		discard any uncommited changes
 	Switch to branch NutAndor/v076:master
+		discard .po files
 
 
 Simple build of the APK
@@ -23,9 +25,6 @@ Simple build of the APK
 - Build the version
 	Open ATCS with version v076
 	Export project into game source folder  NutAndor/andors-trail
-
-	Open AndroidStudio
-	Compile NutAndor/andors-trail
 
 - Actualize PO files
 	Use ATCS' beanshell console to update the .po and .pot files (in assets/translation/) using the new list of translatable text extracted from the JSON and worldmap data. See the PotComparator class comment in ATCS source code.
@@ -55,20 +54,25 @@ Simple build of the APK
 			del "%T%\*.po*"
 			copy "%A%\*.po*" "%T%\"
 
-- Create .mo files
-	In a CMD session:
-		FOR %F in ("C:\AT\NutAndor\andors-trail\AndorsTrail\assets\translation\*.po") DO "C:\Program Files (x86)\Poedit\GettextTools\bin\msgfmt.exe" -o %~dpnF.mo %~F
+			echo  - Create .mo files
+			FOR %F in ("C:\AT\NutAndor\andors-trail\AndorsTrail\assets\translation\*.po") DO "C:\Program Files (x86)\Poedit\GettextTools\bin\msgfmt.exe" -o %~dpnF.mo %~F
+			del "%T%\*.po*"
 
 -  Set version number
 	in AndorsTrailApplication.java
 	in manifest.xml
 
+- Compile
+	Open AndroidStudio
+	Compile NutAndor/andors-trail
 
+	
 Compression
 ===========
 Do these steps when you plan to build a release:
 	
-- Create a new ATCS project: compress 
+- Create a new ATCS project: beta
+	Delete or rename directory if already exists  C:\AT\ATCS\beta\ATCS
 	Create directory if not yet exists  C:\AT\ATCS\beta\ATCS
 	Delete  C:\AT\ATCS\beta\ATCS\beta
 	ATCS: New workspace  C:\AT\ATCS\beta\ATCS
@@ -132,10 +136,10 @@ Do these steps when you plan to build a release:
 	
 	Then enter the compresses PNG definitions:
 		final Size sz8x8 = new Size(8, 8);
-	and	the compressed new .png files, like:
-		FOR %F in ("C:\AT\ATCS\beta\ATCS\beta\compressed\res\drawable\map_*.png") DO @echo loader.prepareTileset(R.drawable.%~nF, "%~nF", sz8x8, sz1x1, mTileSize);
-		FOR %F in ("C:\AT\ATCS\beta\ATCS\beta\compressed\res\drawable\obj_*.png") DO @echo loader.prepareTileset(R.drawable.%~nF, "%~nF", sz8x8, sz1x1, mTileSize);
-		@echo.
+	and	the compressed new .png files:
+		set A=C:\AT\ATCS\beta\ATCS\beta\compressed\res
+		FOR %F in ("%A%\drawable\map_*.png") DO @echo loader.prepareTileset(R.drawable.%~nF, "%~nF", sz8x8, sz1x1, mTileSize);
+		FOR %F in ("%A%\drawable\obj_*.png") DO @echo loader.prepareTileset(R.drawable.%~nF, "%~nF", sz8x8, sz1x1, mTileSize);
 
 		loader.prepareTileset(R.drawable.map_0, "map_0", sz8x8, sz1x1, mTileSize);
 		loader.prepareTileset(R.drawable.map_1, "map_1", sz8x8, sz1x1, mTileSize);
@@ -205,7 +209,7 @@ Do these steps when you plan to build a release:
 
 - Build open version		
 	Set normal boolean values in AndorsTrailApplication.java  (Everything to false)
-	Build with AS	
+	Compile NutAndor/andors-trail with AndroidStudio
 	Upload .apk
 
 - Then build debug version		
