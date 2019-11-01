@@ -1,0 +1,545 @@
+<!DOCTYPE html> 
+<!-- 2015-08-04 Christian Berlage -->
+<!-- file:///C:/privat/Farben/html/etc/AbiCalc.html?kDEU=5&kMAT=6&mDEU=7&mMAT=6&kENG=7&pENG=8&mENG=5&kKUN=10&mKUN=12&pKUN=13&mGES=7&mFRZ=5&kBIO=9&kMUS=11 -->
+<html lang="de">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="AbiCalc" content="AbiCalc">
+		<meta name="robots" content="noindex, nofollow">
+		<title> ABI-Calculator Version 0.9.1 Franzi-Edition</title>
+	<!--			background:			url('http://cache-c.foreca.com/i/rain/de_____-rain-2015080518.jpg?basetime=20150805120000') #CCCCCC; -->
+		<style>
+			html, body
+			{	height:				100%;
+				width:				100%;
+				margin:				0px;
+				padding:			0px;
+				font-size: 			100%;
+			}
+			#haupt
+			{	background:			#CCCCCC    no-repeat    bottom center;
+				background-size:	cover;
+				height:				100%;
+				width:				100%;
+				margin:				0px;
+				padding:			0px;
+				top: 0;
+				right: 0;
+			}
+			#sub1
+			{	background:			transparent    no-repeat    center center;
+				background-size:	cover;
+				position: 			fixed;
+				top: 				0px;
+				right:				0px;
+				height:				50%;
+				width:				33%;
+				margin:				0px 0px 0px 0px;
+				padding:			0px 0px 0px 0px;
+				border: 			1px solid;
+			}
+			#sub2
+			{	background:			transparent    no-repeat    bottom left;
+				background-size:	cover;
+				position: 			fixed;
+				bottom: 			0px;
+				right: 				0px;
+				height:				50%;
+				width:				33%;
+				margin:				0px;
+				padding:			0px;
+				border: 			1px solid;
+				font-size: 			250%;
+				font-style:	 		bold;
+			}
+		</style>
+	</head>
+	
+	<body id="body">
+		<div id="haupt">
+			<p>***  ABI-Calculator  Version 0.9.2  Franzi-Edition  ***<br></p>
+			
+			<form name="formular" method="get">
+
+				<table> <thead></thead> <tbody>
+					<tr>
+						<th>Fach</th> 
+						<th>Praktisch</th> 
+						<th>Klausur</th> 
+						<th>Mündlich</th> 
+						<th></th> 
+						<th>Note</th> 
+						<th>x</th> 
+						<th>Gewichtet</th>
+						<th></th>
+					</tr>
+					<tr>
+						<td>Deutsch</td>
+						<td></td> 
+						<td><input type="text" id="kDEU" name="kDEU" size="2" maxlength="2"></td> 
+						<td><input type="text" id="mDEU" name="mDEU" size="2" maxlength="2"></td> 
+						<td><label type="lable" id="mdlDEU" name="mdlDEU" style="color:grey; font-size:75%"></td> 
+						<td id="nDEU" style="text-align:center;">?</td> 
+						<td> *11 = </td> 
+						<td id="sDEU" style="text-align:center;">?</td> 
+						<td> </td>
+					</tr>
+					<tr>
+						<td>Mathe</td>
+						<td></td> 
+						<td><input type="text" id="kMAT" name="kMAT" size="2" maxlength="2"></td> 
+						<td><input type="text" id="mMAT" name="mMAT" size="2" maxlength="2"></td> 
+						<td><label type="lable" id="mdlMAT" name="mdlMAT" style="color:grey; font-size:75%"></td> 
+						<td id="nMAT" style="text-align:center;">?</td> 
+						<td> *11 = </td> 
+						<td id="sMAT" style="text-align:center;">?</td> 
+						<td> </td>
+					</tr>
+					<tr>
+						<td>Englisch</td>
+						<td><input type="text" id="pENG" name="pENG" size="2" maxlength="2"></td> 
+						<td><input type="text" id="kENG" name="kENG" size="2" maxlength="2"></td> 
+						<td><input type="text" id="mENG" name="mENG" size="2" maxlength="2"></td> 
+						<td><label type="lable" id="mdlENG" name="mdlENG" style="color:grey; font-size:75%"></td> 
+						<td id="nENG" style="text-align:center;">?</td> 
+						<td> *11 = </td> 
+						<td id="sENG" style="text-align:center;">?</td> 
+						<td> </td>
+					</tr>
+					<tr>
+						<td>Kunst</td>
+						<td><input type="text" id="pKUN" name="pKUN" size="2" maxlength="2"></td> 
+						<td><input type="text" id="kKUN" name="kKUN" size="2" maxlength="2"></td> 
+						<td><input type="text" id="mKUN" name="mKUN" size="2" maxlength="2"></td> 
+						<td><label type="lable" id="mdlKUN" name="mdlKUN" style="color:grey; font-size:75%"></td> 
+						<td id="nKUN" style="text-align:center;">?</td> 
+						<td> *11 = </td> 
+						<td id="sKUN" style="text-align:center;">?</td> 
+						<td> </td>
+					</tr>
+					<tr><td>----------</td></tr>
+					<tr>
+						<td>Geschichte</td>
+						<td> </td> 
+						<td> </td> 
+						<td><input type="text" id="mGES" name="mGES" size="2" maxlength="2"></td> 
+						<td> </td> 
+						<td id="nGES" style="text-align:center;">?</td> 
+						<td> *4 = </td> 
+						<td id="sGES" style="text-align:center;">?</td> 
+						<td> </td>
+					</tr>
+					<tr>
+						<td>Französisch</td>
+						<td> </td> 
+						<td> </td> 
+						<td><input type="text" id="mFRZ" name="mFRZ" size="2" maxlength="2"></td> 
+						<td> </td> 
+						<td id="nFRZ" style="text-align:center;">?</td> 
+						<td> *4 = </td> 
+						<td id="sFRZ" style="text-align:center;">?</td> 
+						<td> </td>
+					</tr>
+					<tr><td>----------</td></tr>
+					<tr>
+						<td>Biologie</td>
+						<td> </td> 
+						<td><input type="text" id="kBIO" name="kBIO" size="2" maxlength="2"></td> 
+						<td> </td> 
+						<td><label type="lable" id="mdlBIO" name="mdlBIO"></td> 
+						<td id="nBIO" style="text-align:center;">?</td> 
+						<td> *4 = </td> 
+						<td id="sBIO" style="text-align:center;">?</td> 
+						<td> </td>
+					</tr>
+					<tr>
+						<td>Musik</td>
+						<td> </td> 
+						<td><input type="text" id="kMUS" name="kMUS" size="2" maxlength="2"></td> 
+						<td> </td> 
+						<td><label type="lable" id="mdlMUS" name="mdlMUS"></td> 
+						<td id="nMUS" style="text-align:center;">?</td> 
+						<td> *4 = </td> 
+						<td id="sMUS" style="text-align:center;">?</td> 
+						<td> </td>
+					</tr>
+					<tr><td>----------</td></tr>
+					<tr>
+						<td>Gesamt:</td>
+						<td> </td> 
+						<td> </td>
+						<td> </td> 
+						<td id="fail">?</td> 
+						<td id="nALL" style="text-align:center;font-size:150%;">?</td> 
+						<td> </td> 
+						<td id="sALL" style="text-align:center;font-size:150%;">?</td>
+						<td> </td>
+					</tr>
+				</tbody></table>
+
+				<p></p>
+				<table> <thead></thead> <tbody><tr>
+					<td><input type="submit" value="Berechne" id="but_calc"></td>
+					<td><button type="button" id="but_random">Horoskop</button></td>
+					<!-- <td><button type="button" id="but_share"><a class="noU" href="mailto:">Teilen</a></button></td> -->
+				</tr></tbody></table>
+				<p>Angaben ohne Gewähr</p>
+				<a id="url" href="http://www.rg-brille.de/etc/AbiCalc")>www.rg-brille.de/etc/AbiCalc</a>
+
+			</form>
+
+
+			
+			<script type="text/javascript">
+				document.getElementById("but_calc").onclick = srBut_Calc;
+				document.getElementById("but_random").onclick = srBut_Random;
+				
+				<!------- Parameter verarbeiten  ------->
+				var params = getUrlParams();
+				var x;
+				var fail = "";
+				document.formular.kDEU.value = myParse(params['kDEU']); 
+				document.formular.mDEU.value = myParse(params['mDEU']);  
+				document.formular.kMAT.value = myParse(params['kMAT']); 
+				document.formular.mMAT.value = myParse(params['mMAT']);  
+				document.formular.kENG.value = myParse(params['kENG']); 
+				document.formular.mENG.value = myParse(params['mENG']);  
+				document.formular.pENG.value = myParse(params['pENG']);  
+				document.formular.kKUN.value = myParse(params['kKUN']); 
+				document.formular.mKUN.value = myParse(params['mKUN']);  
+				document.formular.pKUN.value = myParse(params['pKUN']);  
+				document.formular.mGES.value = myParse(params['mGES']);  
+				document.formular.mFRZ.value = myParse(params['mFRZ']);  
+				document.formular.kBIO.value = myParse(params['kBIO']);  
+				document.formular.kMUS.value = myParse(params['kMUS']);  
+
+				srCalc();
+				
+				
+				function srBut_Calc()
+				{	srCalc(); 
+					document.formular.submit();
+				}
+
+				function srBut_Share()
+				{	
+				}
+
+				function srBut_Random()
+				{	var kDEU = myParse(document.formular.kDEU.value); 
+					var mDEU = myParse(document.formular.mDEU.value); 
+					var kMAT = myParse(document.formular.kMAT.value); 
+					var mMAT = myParse(document.formular.mMAT.value); 
+					var kENG = myParse(document.formular.kENG.value); 
+					var mENG = myParse(document.formular.mENG.value); 
+					var pENG = myParse(document.formular.pENG.value); 
+					var kKUN = myParse(document.formular.kKUN.value); 
+					var mKUN = myParse(document.formular.mKUN.value); 
+					var pKUN = myParse(document.formular.pKUN.value); 
+					var mGES = myParse(document.formular.mGES.value); 
+					var mFRZ = myParse(document.formular.mFRZ.value); 
+					var kBIO = myParse(document.formular.kBIO.value); 
+					var kMUS = myParse(document.formular.kMUS.value); 
+					
+					if (kDEU <= 0) kDEU = myRnd(9, 5);
+					if (mDEU <= 0) mDEU = myRnd(kDEU+2, 3);
+					if (kMAT <= 0) kMAT = myRnd(8, 5);
+					if (mMAT <= 0) mMAT = myRnd(kMAT+2, 3);
+					if (kENG <= 0) kENG = myRnd(9, 5);
+					if (mENG <= 0 && kENG < myRnd(7, 2)) mENG = myRnd(kENG+2, 3);
+					if (pENG <= 0) pENG = myRnd(kENG+1, 3);
+					if (kKUN <= 0) kKUN = myRnd(10, 3);
+					if (mKUN <= 0 && kKUN < myRnd(7, 2)) mKUN = myRnd(kKUN+2, 3);
+					if (pKUN <= 0) pKUN = myRnd(kKUN+1, 3);
+					if (mGES <= 0) mGES = myRnd(8, 5);
+					if (mFRZ <= 0) mFRZ = myRnd(7, 5);
+					if (kBIO <= 0) kBIO = myRnd(9, 5);
+					if (kMUS <= 0) kMUS = myRnd(11, 3);
+
+					document.formular.kDEU.value = kDEU; 
+					document.formular.mDEU.value = mDEU; 
+					document.formular.kMAT.value = kMAT; 
+					document.formular.mMAT.value = mMAT; 
+					document.formular.kENG.value = kENG; 
+					document.formular.mENG.value = mENG; 
+					document.formular.pENG.value = pENG; 
+					document.formular.kKUN.value = kKUN; 
+					document.formular.mKUN.value = mKUN; 
+					document.formular.pKUN.value = pKUN; 
+					document.formular.mGES.value = mGES; 
+					document.formular.mFRZ.value = mFRZ; 
+					document.formular.kBIO.value = kBIO; 
+					document.formular.kMUS.value = kMUS; 
+					
+					srCalc(); 
+					<!-- document.formular.submit(); -->
+				}
+				
+				function srCalc()
+				{	var kDEU = myParse(document.formular.kDEU.value); 
+					var mDEU = myParse(document.formular.mDEU.value); 
+					var kMAT = myParse(document.formular.kMAT.value); 
+					var mMAT = myParse(document.formular.mMAT.value); 
+					var kENG = myParse(document.formular.kENG.value); 
+					var mENG = myParse(document.formular.mENG.value); 
+					var pENG = myParse(document.formular.pENG.value); 
+					var kKUN = myParse(document.formular.kKUN.value); 
+					var mKUN = myParse(document.formular.mKUN.value); 
+					var pKUN = myParse(document.formular.pKUN.value); 
+					var mGES = myParse(document.formular.mGES.value); 
+					var mFRZ = myParse(document.formular.mFRZ.value); 
+					var kBIO = myParse(document.formular.kBIO.value); 
+					var kMUS = myParse(document.formular.kMUS.value); 
+					var x = 0;
+					var n5k = 0;
+					var n5m = 0;
+					var fail = "";
+					var x0; var x1; var x2;
+
+					/* DEUTSCH */
+					x = (mDEU > 0) ? Math.round((kDEU + mDEU) / 2) : kDEU;
+					s = ""; x1 = -1; 
+					if (kDEU > 0 && mDEU == 0)
+					{	for (var i = 0; i <16; i++)
+						{	x0 = Math.round((kDEU + i) / 2);
+							if (x1 < 0 && x0 == x) x1 = i;
+							if (x0 <= x) x2 = i;
+						}
+						s = x1 + "-" + x2;
+					}
+					<!-- document.getElementById("mdlDEU").innerHTML = s; -->
+					
+					if (x < 5) n5k = n5k + 1;
+					document.getElementById("nDEU").innerHTML = p2n(x); 
+					var sDEU = 11 * x;
+					document.getElementById("sDEU").innerHTML = sDEU;
+					if (sDEU == 0) fail = "Deutsch=0";
+
+
+					/* Mathe */
+					x = (mMAT > 0) ? Math.round((kMAT + mMAT) / 2) : kMAT;
+					s = ""; x1 = -1; 
+					if (kMAT > 0 && mMAT == 0)
+					{	for (var i = 0; i <16; i++)
+						{	x0 = Math.round((kMAT + i) / 2);
+							if (x1 < 0 && x0 == x) x1 = i;
+							if (x0 <= x) x2 = i;
+						}
+						s = x1 + "-" + x2;
+					}
+					<!-- document.getElementById("mdlMAT").innerHTML = s; -->
+
+					if (x < 5) n5k = n5k + 1;
+					document.getElementById("nMAT").innerHTML = p2n(x); 
+					var sMAT = 11 * x;
+					document.getElementById("sMAT").innerHTML = sMAT;
+					if (sMAT == 0) fail = "Mathe=0";
+
+					
+					<!-- x = Math.round((2.0 * kENG + pENG) / 3.0); -->
+					<!-- if (x < 5) n5k = n5k + 1; -->
+					<!-- document.getElementById("nENG").innerHTML = p2n(x);  -->
+					<!-- var sENG = (mENG > 0) ? Math.round((5.5 * (2.0 * kENG + pENG) / 3.0) + 5.5 * mENG) : Math.floor(11.0 * ((2.0 * kENG + pENG) / 3.0)); -->
+					<!-- document.getElementById("sENG").innerHTML = sENG;					 -->
+					<!-- if (sENG == 0) fail = "Englisch=0"; -->
+
+					<!-- x = Math.round((2.0 * kKUN + pKUN) / 3.0); -->
+					<!-- if (x < 5) n5k = n5k + 1; -->
+					<!-- document.getElementById("nKUN").innerHTML = p2n(x);  -->
+					<!-- var sKUN = (mKUN > 0) ? Math.round((5.5 * (kKUN + pKUN) / 2.0) + 5.5 * mKUN) : Math.floor(11.0 * ((kKUN + pKUN) / 2.0)); -->
+					<!-- document.getElementById("sKUN").innerHTML = sKUN;					 -->
+					<!-- if (sKUN == 0) fail = "Ku -->
+
+					
+					/* Englisch */
+					x = Math.round((2.0 * kENG + pENG) / 3.0);
+					if (mENG > 0) x = Math.round((x + mENG) / 2);
+					s = ""; x1 = -1; 
+					if (kENG > 0 && mENG == 0)
+					{	for (var i = 0; i <16; i++)
+						{	x0 = Math.round((x + i) / 2);
+							if (x1 < 0 && x0 == x) x1 = i;
+							if (x0 <= x) x2 = i;
+						}
+						s = x1 + "-" + x2;
+					}
+					<!-- document.getElementById("mdlENG").innerHTML = s; -->
+
+					if (x < 5) n5k = n5k + 1;
+					document.getElementById("nENG").innerHTML = p2n(x); 
+					var sENG = (mENG > 0) ? Math.round((5.5 * (2.0 * kENG + pENG) / 3.0) + 5.5 * mENG) : Math.floor(11.0 * ((2.0 * kENG + pENG) / 3.0));
+					document.getElementById("sENG").innerHTML = sENG;					
+					if (sENG == 0) fail = "Englisch=0";
+					
+
+					/* Kunst */
+					x = Math.round((2.0 * kKUN + pKUN) / 3.0);
+					if (mKUN > 0) x = Math.round((x + mKUN) / 2);
+					s = ""; x1 = -1; 
+					if (kKUN > 0 && mKUN == 0)
+					{	for (var i = 0; i <16; i++)
+						{	x0 = Math.round((x + i) / 2);
+							if (x1 < 0 && x0 == x) x1 = i;
+							if (x0 <= x) x2 = i;
+						}
+						s = x1 + "-" + x2;
+					}
+					<!-- document.getElementById("mdlKUN").innerHTML = s; -->
+
+					if (x < 5) n5k = n5k + 1;
+					document.getElementById("nKUN").innerHTML = p2n(x); 
+					var sKUN = (mKUN > 0) ? Math.round((5.5 * (kKUN + pKUN) / 2.0) + 5.5 * mKUN) : Math.floor(11.0 * ((kKUN + pKUN) / 2.0));
+					document.getElementById("sKUN").innerHTML = sKUN;					
+					if (sKUN == 0) fail = "Kunst=0";
+					
+					
+					/* Geschichte */
+					document.getElementById("nGES").innerHTML = p2n(mGES); 
+					if (mGES < 5) n5m = n5m + 1;
+					var sGES = 4 * mGES;
+					document.getElementById("sGES").innerHTML = sGES;
+					if (sGES == 0) fail = "Geschichte=0";
+					
+					
+					document.getElementById("nFRZ").innerHTML = p2n(mFRZ); 
+					if (mFRZ < 5) n5m = n5m + 1;
+					var sFRZ = 4 * mFRZ;
+					document.getElementById("sFRZ").innerHTML = sFRZ;
+					if (sFRZ == 0) fail = "Französisch=0";
+					
+					
+					document.getElementById("nBIO").innerHTML = p2n(kBIO); 
+					var sBIO = 4 * kBIO;
+					document.getElementById("sBIO").innerHTML = sBIO;
+					if (sBIO == 0) fail = "Biologie=0";
+					
+					
+					document.getElementById("nMUS").innerHTML = p2n(kMUS); 
+					var sMUS = 4 * kMUS;
+					document.getElementById("sMUS").innerHTML = sMUS;
+					if (sMUS == 0) fail = "Musik=0";
+
+					
+					x = 0 + sDEU + sMAT + sENG + sKUN + sGES + sFRZ + sBIO + sMUS;
+					document.getElementById("sALL").innerHTML = x;
+					if (x == 0)
+					{	document.getElementById("nALL").innerHTML = ""; 
+						document.getElementById("fail").innerHTML =	"";
+					}
+					else
+					{	x = 0 + sGES + sFRZ + sBIO + sMUS;
+						if (x < 80) fail = "Mündl. Fächer <80";
+						if (n5m > 1) fail = n5m + " mündl. Fächer <5";
+						x = 0 + sDEU + sMAT + sENG + sKUN;
+						if (x < 220) fail = "Schriftl. Fächer <220";
+						if (n5k > 1) fail = n5k + " schriftl. Fächer <5";
+
+						x = 0 + sDEU + sMAT + sENG + sKUN + sGES + sFRZ + sBIO + sMUS;
+						if (fail == "")  document.getElementById("nALL").innerHTML =s2n1(x);
+						else  document.getElementById("nALL").innerHTML = "8-(";
+						document.getElementById("fail").innerHTML =	fail;
+					}
+				}
+				
+
+				function p2n(p) 
+				{	var note = "  ";
+					switch(p)
+					{	case  0:  note = "6 "; break;
+						case  1:  note = "5-"; break;
+						case  2:  note = "5 "; break;
+						case  3:  note = "5+"; break;
+						case  4:  note = "4-"; break;
+						case  5:  note = "4 "; break;
+						case  6:  note = "4+"; break;
+						case  7:  note = "3-"; break;
+						case  8:  note = "3 "; break;
+						case  9:  note = "3+"; break;
+						case 10:  note = "2-"; break;
+						case 11:  note = "2 "; break;
+						case 12:  note = "2+"; break;
+						case 13:  note = "1-"; break;
+						case 14:  note = "1 "; break;
+						case 15:  note = "1+"; break;
+					}
+					return note;
+				}
+
+				
+				function myParse(val)
+				{	switch(val)
+					{	case  "0":		return 0.0;
+						case  "0,5":	return 0.5;
+						case  "1":		return 1.0;
+						case  "1,5":	return 1.5;
+						case  "2":		return 2.0;
+						case  "2,5":	return 2.5;
+						case  "3":		return 3.0;
+						case  "3,5":	return 3.5;
+						case  "4":		return 4.0;
+						case  "4,5":	return 4.5;
+						case  "5":		return 5.0;
+						case  "5,5":	return 5.5;
+						case  "6":		return 6.0;
+						case  "6,5":	return 6.5;
+						case  "7":		return 7.0;
+						case  "7,5":	return 7.5;
+						case  "8":		return 8.0;
+						case  "8,5":	return 8.5;
+						case  "9":		return 9.0;
+						case  "9,5":	return 9.5;
+						case  "10":		return 10.0;
+						case  "10,5":	return 10.5;
+						case  "11":		return 11.0;
+						case  "11,5":	return 11.5;
+						case  "12":		return 12.0;
+						case  "12,5":	return 12.5;
+						case  "13":		return 13.0;
+						case  "13,5":	return 13.5;
+						case  "14":		return 14.0;
+						case  "14,5":	return 14.5;
+						case  "15":		return 15.0;
+					}
+					return "";
+				}
+				
+
+				function s2n1(p) 
+				{	var note = 0.0;
+					if (p < 300) { note = 6.0; }
+					else if (p >= 840) { note = 1.0; }	
+					else 
+					{  note = 4.0 - Math.round(10 * (p - 300) / 180) / 10;
+					}
+					return note;
+				}
+
+				
+				function myRnd(b, d) 
+				{	var erg = 0;
+					erg = Math.floor((Math.random() * d * 2.0) + b - d); 
+					if (erg < 1) erg = 1;
+					if (erg > 15) erg = 15;
+					return erg;
+				}				
+				
+				
+				function getUrlParams() 
+				{	var paramMap = {};
+					if (location.search.length == 0) 
+					{	return paramMap;
+					}
+					var parts = location.search.substring(1).split("&");
+					for (var i = 0; i < parts.length; i ++) 
+					{	var component = parts[i].split("=");
+						paramMap [decodeURIComponent(component[0])] = decodeURIComponent(component[1]);
+					}
+					return paramMap;
+				}
+
+				  </script>
+
+		</div>
+	</body>
+</html>
