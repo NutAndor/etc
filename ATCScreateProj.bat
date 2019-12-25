@@ -5,9 +5,9 @@ rem v-----------------Change these settings to your values!
 set   AT_BASE=C:\AT\
 set ATCS_BASE=C:\AT\ATCS\
 set  ATCS_DIR=C:\AT\ATCS\%1\ATCS\%1\
-set AT_SRCDIR=C:\AT\Zukero\andors-trail\AndorsTrail
+set AT_SRCDIR=C:\AT\AndorsTrailRelease\andors-trail\AndorsTrail
 set AT_TGTDIR=C:\AT\NutAndor\andors-trail\AndorsTrail
-set AT_SRCGIT=https://github.com/Zukero/andors-trail.git
+set AT_SRCGIT=https://github.com/AndorsTrailRelease/andors-trail.git
 set AT_TGTGIT=https://github.com/NutAndor/andors-trail.git
 set  ATCS_GIT=https://github.com/%1.git
 
@@ -30,7 +30,7 @@ echo  "                                                              |
 echo  "                                                              |
 echo  " AT-Source ------------------------------------------------+  |
 echo  " Sources of the actual AT version                          |  |
-echo  " (cloned from git:zukero branch:master)                    v  v
+echo  " (cloned from git:AndorsTrailRelease branch:master)        v  v
 echo  "                                                           ATCS
 echo  "                                                            |
 echo  "  +-------- AT-Target <-------------------------------------+
@@ -58,7 +58,7 @@ echo.
 echo So we need 3 git projects cloned:
 echo   1. The ATCS sources  (Git clone of the ATCS project)
 echo        e.g.  %ATCS_GIT%   %AT_SRCDIR%:master
-echo   2. The actual game sources  (Git clone of Zukero's AT version)
+echo   2. The actual game sources  (Git clone of AndorsTrailRelease's AT version)
 echo        e.g.  %AT_SRCGIT%   %AT_SRCDIR%:master
 echo   3. The target game source for Android Studio compile  (Git clone of your forked AT version)
 echo        e.g.  %AT_TGTGIT%   %AT_TGTDIR%:%1
