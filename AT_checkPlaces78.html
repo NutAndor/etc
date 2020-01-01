@@ -22,7 +22,7 @@
 	
 	<body id="body">
 		<div>
-			<p>***  Andors Trail  -  Places visited  (v0.7.5)  ***</p>
+			<p>***  Andors Trail  -  Places visited  (v0.7.8)  ***</p>
 			
 			<form name="formular" method="get">
 			
@@ -38,7 +38,7 @@
 				<output id="content" style="text-align:center; white-space:pre-line;"></output>
 				<br>
 				<output id="list" style="text-align:center; white-space:pre-line;"></output>
-				<p><br>www.rg-brille.de/etc/AT/AT_checkPlaces75.html</p>
+				<p><br>www.rg-brille.de/etc/AT/AT_checkPlaces78.html</p>
 
 			</form>
 
@@ -650,20 +650,22 @@
 					}
 
 					document.formular.content.value = (count2 - count) + ' places visited (round about),  ' + count + ' of ' + count2 + ' still unknown.';
-					if (count > 100) document.formular.list.value = 'It\'s still a long way...';
-					else if (count > 10)	document.formular.list.value = 'When you get to the last 10 places, I will tell you which are missing';
+					if (count > 10000) document.formular.list.value = 'It\'s still a long way...';
+					else if (count > 1000)	document.formular.list.value = 'When you get to the last 10 places, I will tell you which are missing';
 					else if (count > 0)	document.formular.list.value = missing; 
 					else document.formular.list.value = '*** CONGRATULATION ***';
 				}
 
 				function readSingleFile(e) {
 				  var file = e.target.files[0];
+				  document.formular.content.value = 'loading...';
 				  if (!file) {
 					return;
 				  }
 				  var reader = new FileReader();
 				  reader.onload = function(e) {
 					var contents = e.target.result;
+					document.formular.content.value = 'displayContents...';
 					displayContents(contents);
 				  };
 				  reader.readAsBinaryString(file);
