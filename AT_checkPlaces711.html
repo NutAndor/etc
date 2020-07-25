@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<!-- 2017-05-13 Christian Berlage -->
+<!-- file:///C:/privat/Farben/html/etc/AT_checkPlaces.html -->
+<html lang="de">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="AT_checkPlaces" content="AT_checkPlaces">
+		<meta name="robots" content="noindex, nofollow">
+		<title>AT - Places visited</title>
+		<style>
+			html, body
+			{	height:				100%;
+				width:				100%;
+				margin:				0px;
+				padding:			0px;
+				font-size: 			100%;
+				background:			#CCCCCC;
+			}
+		</style>
+	</head>
+
+	<body id="body">
+		<div>
+			<p>***  Andors Trail  -  Places visited  (v0.7.11)  ***</p>
+
+			<form name="formular" method="get">
+
+				<table> <thead></thead><tbody>
+				<tr>
+					<td>Select AT save file:</td>
+					<td><input type="file" id="file" name="saveGame" size="80" maxlength="200"></td>
+					<!-- <td><input type="test" id="test" name="home" size="50" maxlength="200"></td> -->
+				</tr></tbody></table>
+				<br>
+				<output id="hero">(JavaScript is needed)</output>
+				<br>
+				<output id="content" style="text-align:center; white-space:pre-line;"></output>
+				<br>
+				<output id="list" style="text-align:center; white-space:pre-line;"></output>
+				<p><br>www.rg-brille.de/etc/AT/AT_checkPlaces711.html</p>
+
+			</form>
+
+
+
+			<script>
+				document.getElementById('file').addEventListener('change', readSingleFile, false);
+
+				function displayContents(bStr, file) {
+					document.formular.content.value = 'searching...';
+					var places = [
+'arulircave1',
+'arulircave2',
+'arulircave3',
+'arulircave4',
+'arulircave5',
+'arulircave6',
+'arulirmountain1',
+'arulirmountain2',
+'basiliskcave1',
+'basiliskcave1_1_1',
+'basiliskcave1_1_2',
+'basiliskcave1_1_3',
+'basiliskcave1_1_4',
+'basiliskcave1_1_5',
+'basiliskcave2',
+'blackwater_mountain0',
+'blackwater_mountain1',
+'blackwater_mountain10',
+'blackwater_mountain11',
+'blackwater_mountain12',
+'blackwater_mountain13',
+'blackwater_mountain14',
+'blackwater_mountain15',
+'blackwater_mountain16',
+'blackwater_mountain17',
+'blackwater_mountain18',
+'blackwater_mountain19',
+'blackwater_mountain2',
+'blackwater_mountain20',
+'blackwater_mountain21',
+'blackwater_mountain22',
+'blackwater_mountain23',
+'blackwater_mountain24',
+'blackwater_mountain25',
+'blackwater_mountain26',
+'blackwater_mountain27',
+'blackwater_mountain28',
+'blackwater_mountain29',
+'blackwater_mountain3',
+'blackwater_mountain30',
+'blackwater_mountain31',
+'blackwater_mountain32',
+'blackwater_mountain33',
+'blackwater_mountain34',
+'blackwater_mountain35',
+'blackwater_mountain36',
+'blackwater_mountain37',
+'blackwater_mountain38',
+'blackwater_mountain39',
+'blackwater_mountain4',
+'blackwater_mountain40',
+'blackwater_mountain41',
+'blackwater_mountain42',
+'blackwater_mountain43',
+'blackwater_mountain44',
+'blackwater_mountain45',
+'blackwater_mountain46',
+'blackwater_mountain47',
+'blackwater_mountain48',
+'blackwater_mountain49',
+'blackwater_mountain4a',
+'blackwater_mountain5',
+'blackwater_mountain50',
+'blackwater_mountain51',
+'blackwater_mountain52',
+'blackwater_mountain53',
+'blackwater_mountain54',
+'blackwater_mountain55_tpl',
+'blackwater_mountain5a',
+'blackwater_mountain6',
+'blackwater_mountain7',
+'blackwater_mountain8',
+'blackwater_mountain9',
+'brimhaven1',
+'brimhaven2',
+'brimhaven2_farmhouse',
+'brimhaven2_laundry',
+'brimhaven2_woodcutter',
+'brimhaven3',
+'brimhaven4',
+'brimhaven6',
+'brimhaven7',
+'brimhaven8',
+'brimhaven_anakis_house',
+'brimhaven_armor1',
+'brimhaven_brother1',
+'brimhaven_brother1_to_2',
+'brimhaven_brother2',
+'brimhaven_church',
+'brimhaven_employee',
+'brimhaven_fortune_teller',
+'brimhaven_general1',
+'brimhaven_house1',
+'brimhaven_inn_east',
+'brimhaven_metalsmith',
+'brimhaven_prison',
+'brimhaven_school',
+'brimhaven_shop',
+'brimhaven_tavern1',
+'brimhaven_tavern_west',
+'brimhaven_tavern_west_back',
+'brimhaven_warehouse',
+'brimhaven_weapon1',
+'catacombs1',
+'catacombs2',
+'catacombs3',
+'catacombs4',
+'clearing_level1',
+'clearing_level2',
+'crackshot_hideout1',
+'crackshot_hideout2',
+'crackshot_hideout3',
+'crossglen',
+'crossglen_cave',
+'crossglen_farmhouse',
+'crossglen_farmhouse_basement',
+'crossglen_hall',
+'crossglen_smith',
+'crossroads',
+'debugmap',
+'elm_mine0',
+'elm_mine1',
+'fallhaven_alaun',
+'fallhaven_arcir',
+'fallhaven_arcir_basement',
+'fallhaven_athamyr',
+'fallhaven_barn',
+'fallhaven_church',
+'fallhaven_clothes',
+'fallhaven_derelict',
+'fallhaven_derelict2',
+'fallhaven_farmer',
+'fallhaven_gravedigger',
+'fallhaven_lumberjack',
+'fallhaven_ne',
+'fallhaven_nocmar',
+'fallhaven_nw',
+'fallhaven_potions',
+'fallhaven_prison',
+'fallhaven_rigmor',
+'fallhaven_se',
+'fallhaven_storage',
+'fallhaven_sw',
+'fallhaven_tavern',
+'fields0',
+'fields1',
+'fields10',
+'fields11',
+'fields11b',
+'fields12',
+'fields2',
+'fields3',
+'fields4',
+'fields5',
+'fields6',
+'fields7',
+'fields8',
+'fields9',
+'flagstone0',
+'flagstone1',
+'flagstone2',
+'flagstone3',
+'flagstone4',
+'flagstone_inner',
+'flagstone_upper',
+'foaming_flask',
+'gapfiller1',
+'gapfiller2',
+'gapfiller3',
+'gapfiller4',
+'gargoylecave1',
+'gargoylecave2',
+'gargoylecave3',
+'gargoylecave4',
+'graveyard0',
+'graveyard1',
+'guildbrig1',
+'guildbrig2',
+'guynmart',
+'guynmart_farmhouse',
+'guynmart_gate_2',
+'guynmart_main_0',
+'guynmart_main_1',
+'guynmart_main_2',
+'guynmart_main_3',
+'guynmart_passage',
+'guynmart_tower_0',
+'guynmart_tower_1',
+'guynmart_tower_2',
+'guynmart_tower_3',
+'guynmart_tower_4',
+'guynmart_wood_1',
+'guynmart_wood_10',
+'guynmart_wood_11',
+'guynmart_wood_12',
+'guynmart_wood_13',
+'guynmart_wood_14',
+'guynmart_wood_2',
+'guynmart_wood_3',
+'guynmart_wood_3_hole',
+'guynmart_wood_4',
+'guynmart_wood_5',
+'guynmart_wood_6',
+'guynmart_wood_7',
+'guynmart_wood_8',
+'guynmart_wood_9',
+'hauntedhouse1',
+'hauntedhouse2',
+'hauntedhouse3',
+'hauntedhouse4',
+'home',
+'houseatcrossroads0',
+'houseatcrossroads1',
+'houseatcrossroads2',
+'houseatcrossroads3',
+'houseatcrossroads4',
+'houseatcrossroads5',
+'jan_pitcave1',
+'jan_pitcave2',
+'jan_pitcave3',
+'lakecave0',
+'lakecave1',
+'lakecave2',
+'lodar0',
+'lodar1',
+'lodar10',
+'lodar11',
+'lodar12',
+'lodar12cave0',
+'lodar12cave1',
+'lodar13',
+'lodar14',
+'lodar15',
+'lodar16',
+'lodar17',
+'lodar18',
+'lodar19',
+'lodar1cave0',
+'lodar2',
+'lodar20',
+'lodar21',
+'lodar3',
+'lodar4',
+'lodar5',
+'lodar5cave0',
+'lodar5cave1',
+'lodar5cave2',
+'lodar6',
+'lodar7',
+'lodar8',
+'lodar8cave0',
+'lodar9',
+'lodarcave0',
+'lodarcave1',
+'lodarcave2',
+'lodarcave3',
+'lodarcave4',
+'lodarcave4a',
+'lodarcave5',
+'lodarcave6',
+'lodarcave7',
+'lodarhouse0',
+'lodarhouse1',
+'loneford1',
+'loneford10',
+'loneford11',
+'loneford12',
+'loneford13',
+'loneford14',
+'loneford15',
+'loneford16',
+'loneford17',
+'loneford2',
+'loneford3',
+'loneford4',
+'loneford5',
+'loneford6',
+'loneford7',
+'loneford8',
+'loneford9',
+'lonelyhouse0',
+'lonelyhouse1',
+'lookout_lower',
+'lookout_upper',
+'lostmine0',
+'lostmine1',
+'lostmine10',
+'lostmine11',
+'lostmine1a',
+'lostmine2',
+'lostmine2a',
+'lostmine3',
+'lostmine4',
+'lostmine5',
+'lostmine6',
+'lostmine7',
+'lostmine8',
+'lostmine9',
+'minerhouse0',
+'minerhouse1',
+'minerhouse2',
+'minerhouse3',
+'minerhouse4',
+'minerhouse5',
+'minerhouse6',
+'minerhouse7',
+'minerhouse8',
+'minerhouse9',
+'mountaincave0',
+'mountaincave1',
+'mountaincave2',
+'mountaincave3',
+'mountainlake0',
+'mountainlake1',
+'mountainlake10',
+'mountainlake10a',
+'mountainlake11',
+'mountainlake12',
+'mountainlake13',
+'mountainlake13a',
+'mountainlake2',
+'mountainlake3',
+'mountainlake4',
+'mountainlake5',
+'mountainlake6',
+'mountainlake7',
+'mountainlake8',
+'mountainlake9',
+'oldcave0',
+'oldcave1',
+'pwcave0',
+'pwcave1',
+'pwcave2',
+'pwcave2a',
+'pwcave3',
+'pwcave4',
+'remgard0',
+'remgard1',
+'remgard2',
+'remgard3',
+'remgard4',
+'remgard_armour',
+'remgard_barn',
+'remgard_church',
+'remgard_clothes',
+'remgard_farmer1',
+'remgard_farmer2',
+'remgard_farmer3',
+'remgard_prison',
+'remgard_school',
+'remgard_tavern0',
+'remgard_tavern1',
+'remgard_villager1',
+'remgard_villager2',
+'remgard_villager3',
+'remgard_villager4',
+'remgard_villager5',
+'remgard_weapon',
+'road1',
+'road2',
+'road3',
+'road4',
+'road4_gargoylecave',
+'road5',
+'road5_house',
+'roadbeforecrossroads',
+'roadbeforecrossroads1',
+'roadbeforecrossroads2',
+'roadbeforecrossroads3',
+'roadbeforecrossroads4',
+'roadbeforecrossroads5',
+'roadbeforecrossroads6',
+'roadbeforecrossroads7',
+'roadbeforecrossroads8',
+'roadbeforecrossroads9',
+'roadcave0',
+'roadcave1',
+'roadtocarntower0',
+'roadtocarntower1',
+'roadtocarntower2',
+'shortcut_lodar0',
+'shortcut_lodar1',
+'shortcut_lodar2',
+'shortcut_lodar3',
+'shortcut_lodar4',
+'snakecave1',
+'snakecave2',
+'snakecave3',
+'stoutford_armorer',
+'stoutford_castle0',
+'stoutford_castle1',
+'stoutford_castle2',
+'stoutford_castle_barrack0',
+'stoutford_castle_barrack1',
+'stoutford_castle_barrack2',
+'stoutford_castle_shed',
+'stoutford_castle_shop',
+'stoutford_castle_stable',
+'stoutford_castle_tower0',
+'stoutford_castle_tower1',
+'stoutford_cellar',
+'stoutford_cellar2',
+'stoutford_church',
+'stoutford_cottage1',
+'stoutford_cottage2',
+'stoutford_derelict',
+'stoutford_farmhouse1',
+'stoutford_farmhouse2',
+'stoutford_farmhouse3',
+'stoutford_gate',
+'stoutford_ne',
+'stoutford_nw',
+'stoutford_potion',
+'stoutford_se',
+'stoutford_smith',
+'stoutford_smith_basement',
+'stoutford_sw',
+'stoutford_tavern',
+'stoutford_tower0',
+'stoutford_tower1',
+'stoutford_tower2',
+'stoutford_tower3',
+'stoutford_tower4',
+'template',
+'tradehouse0',
+'tradehouse0a',
+'tradehouse1',
+'vilegard_armorer',
+'vilegard_chapel',
+'vilegard_erttu',
+'vilegard_kaori',
+'vilegard_n',
+'vilegard_ogam',
+'vilegard_s',
+'vilegard_smith',
+'vilegard_sw',
+'vilegard_tavern',
+'vilegard_wrye',
+'waterway0',
+'waterway1',
+'waterway10',
+'waterway11',
+'waterway11_east',
+'waterway12',
+'waterway13',
+'waterway14',
+'waterway15',
+'waterway2',
+'waterway3',
+'waterway4',
+'waterway5',
+'waterway6',
+'waterway7',
+'waterway8',
+'waterway9',
+'waterwaya1',
+'waterwaya2',
+'waterwaya3',
+'waterwaya5',
+'waterwaya6',
+'waterwayacave1',
+'waterwayacave2',
+'waterwayacave3',
+'waterwayacave4',
+'waterwayacavex',
+'waterwayb1',
+'waterwayb2',
+'waterwayb3',
+'waterwayb4',
+'waterwaybhouse',
+'waterwaycave',
+'waterwayextention',
+'waterwayhouse',
+'waytobrimhaven0',
+'waytobrimhaven1',
+'waytobrimhaven2',
+'waytobrimhaven3',
+'waytobrimhaven4',
+'waytobrimhaven5',
+'waytobrimhaven6',
+'waytobrimhavencave0',
+'waytobrimhavencave1',
+'waytobrimhavencave1a',
+'waytobrimhavencave2',
+'waytobrimhavencave3',
+'waytobrimhavencave3a',
+'waytobrimhavencave3b',
+'waytobrimhavencave4',
+'waytogalmore0',
+'waytogalmore1',
+'waytolake0',
+'waytolake1',
+'waytolake10',
+'waytolake11',
+'waytolake12',
+'waytolake2',
+'waytolake3',
+'waytolake4',
+'waytolake5',
+'waytolake6',
+'waytolake7',
+'waytolake7b',
+'waytolake8',
+'waytolake9',
+'waytolostmine0',
+'waytolostmine1',
+'waytolostmine2',
+'waytolostmine3',
+'waytominingtown0',
+'waytominingtown1',
+'waytominingtown1a',
+'waytominingtown2',
+'waytominingtown3',
+'waytomountaincave0',
+'waytomountaincave1',
+'waytomountaincave2',
+'wild0',
+'wild1',
+'wild10',
+'wild11',
+'wild11_clearing',
+'wild12',
+'wild13',
+'wild14',
+'wild14_cave',
+'wild14_clearing',
+'wild15',
+'wild15_house',
+'wild16',
+'wild16_cave',
+'wild17',
+'wild18',
+'wild19',
+'wild2',
+'wild20',
+'wild20a',
+'wild21',
+'wild21a',
+'wild22',
+'wild23',
+'wild3',
+'wild4',
+'wild5',
+'wild6',
+'wild6_house',
+'wild7',
+'wild8',
+'wild9',
+'woodcave0',
+'woodcave1',
+'woodhouse0',
+'woodhouse1',
+'woodhouse2',
+'woodhouse3',
+'woodsettlement0'
+					];
+
+					var n1 = bStr.charCodeAt(5);
+					var n2 = bStr.charCodeAt(5+n1+2);
+					var n3 = bStr.charCodeAt(5+n1+2+n2+6+2);
+					var n4 = bStr.charCodeAt(5+n1+2+n2+6+2+n3+12+2);
+					var s = bStr.substr(6, n1) + ',  ' + bStr.substr(6+n1+2, n2);
+					document.formular.hero.value = s;
+
+					var foundPlaces = '';
+
+					var place1 = bStr.substr(6+n1+2+n2+6+2+n3+12+2, n4);
+					var txtpattern = '.';
+					var regex = new RegExp(txtpattern);
+
+					var count = 0;
+					var count2 = 0;
+					var i, p, n;
+					var missing = '';
+					<!-- missing += '\r\n' + 'ALL: Place1' + '\r\n'; -->
+					for (i = 0; i < places.length; i++)
+					{	p = places[i];
+						<!-- missing += p + '\r\n'; -->
+						if (p!='template' &&
+							p!='debugmap' &&
+							p!='blackwater_mountain39a' &&
+							p!='blackwater_mountain5c'  &&
+							p!='blackwater_mountain7a'  &&
+							p!='guynmart_wood_14'  )
+						{	count2++;
+							<!--  -->
+							txtpattern = '\x00\x08[0-9a-fA-F]{8,8}\x00' + String.fromCharCode(p.length) + p;
+							regex = RegExp(txtpattern);
+							n = bStr.search(regex);
+							if (n < 0)
+							{	txtpattern = '\x00\x01\x00\x00\x00' + String.fromCharCode(p.length) + p;
+								regex = RegExp(txtpattern);
+								n = bStr.search(regex);
+							}
+							if (n < 0)
+							{	txtpattern = '\x00' + String.fromCharCode(p.length) + p + '\x00\x01\x00\x08[0-9a-fA-F]{8,8}';
+								regex = RegExp(txtpattern);
+								n = bStr.search(regex);
+							}
+							if (p != place1 && n < 0)
+							{	missing += '- ' + p + '\r\n';
+								count++;
+							}
+							else
+							{	<!-- missing += '++  ' + p + '\r\n'; -->
+							}
+						}
+					}
+
+					<!-- missing += '\r\n' + 'FOUND IN SAVEGAME: Place1' + '\r\n'; -->
+					<!-- missing += place1 + '\r\n'; -->
+					<!-- document.formular.list.value = missing; -->
+
+					<!-- missing += '\r\n' + 'FOUND IN SAVEGAME: \x00\x08[0-9a-fA-F]{8,8}\x00' + '\r\n'; -->
+					<!-- document.formular.list.value = missing; -->
+					<!-- txtpattern = '\x00\x08[0-9a-fA-F]{8,8}\x00'; -->
+					<!-- regex = RegExp(txtpattern); -->
+					<!-- var p1 = 0; -->
+					<!-- for (i=bStr.substr(p1).search(regex); i >= 0; i=bStr.substr(p1).search(regex)) -->
+					<!-- {	 -->
+						<!-- n1 = bStr.charCodeAt(p1 + i + 11); -->
+						<!-- missing += bStr.substr(p1 + i + 12, n1) + '\r\n'; -->
+						<!-- p1 += i + 3; -->
+					<!-- } -->
+					<!-- document.formular.list.value = missing; -->
+
+					<!-- debugger; -->
+					<!-- missing += '\r\n' + 'FOUND IN SAVEGAME: \x00\x01\x00\x00\x00' + '\r\n'; -->
+					<!-- document.formular.list.value = missing; -->
+					<!-- txtpattern = '\x00\x01\x00\x00\x00'; -->
+					<!-- regex = RegExp(txtpattern); -->
+					<!-- var p1 = 0; -->
+					<!-- for (i=bStr.substr(p1).search(regex); -i >= 0; i=bStr.substr(p1).search(regex)) -->
+					<!-- {	 -->
+						<!-- n1 = bStr.charCodeAt(p1 + i + 5); -->
+						<!-- if (bStr.charCodeAt(p1 + i + 6 + n1) == 0) -->
+						<!-- {	missing += bStr.substr(p1 + i + 6, n1) + '\r\n'; -->
+							<!-- p1 += i + 3; -->
+							<!-- document.formular.list.value = missing; -->
+						<!-- } -->
+					<!-- } -->
+
+					document.formular.content.value = (count2 - count) + ' places visited (round about),  ' + count + ' of ' + count2 + ' still unknown.';
+					if (count > 100) document.formular.list.value = 'It\'s still a long way...';
+					else if (count > 10)	document.formular.list.value = 'When you get to the last 10 places, I will tell you which are missing';
+					else if (count > 0)	document.formular.list.value = missing;
+					else document.formular.list.value = '*** CONGRATULATION ***';
+				}
+
+				function readSingleFile(e) {
+				  var file = e.target.files[0];
+				  document.formular.content.value = 'loading...';
+				  if (!file) {
+					return;
+				  }
+				  var reader = new FileReader();
+				  reader.onload = function(e) {
+					var contents = e.target.result;
+					document.formular.content.value = 'displayContents...';
+					displayContents(contents);
+				  };
+				  reader.readAsBinaryString(file);
+				}
+
+			</script>
+
+		</div>
+	</body>
+</html>
