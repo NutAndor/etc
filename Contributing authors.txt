@@ -1,0 +1,313 @@
+01.01.2000 - 31.12.2099   >100 translations  (act. 13.09.2020)	(*)
+13.09.2020 - 31.12.2099   >100 translations  (act. 10.01.2021)	(2)
+
+<string-array name="preferences_language"> 
+	<item>@string/preferences_language_default</item> 
+	<item>English</item> 
+	<item>Deutsch (98%)</item> 
+	<item>Español (98%)</item> 
+	<item>Française (60%)</item> 
+	<item>Italiano (98%)</item> 
+	<item>Magyar (45%)</item> 
+	<item>Polski (98%)</item> 
+	<item>Português (85%)</item> 
+	<item>Português Brasil (85%)</item> 
+	<item>Русский язык (98%)</item> 
+</string-array> 
+
+
+wcttfaf@gmail.com
+epost@anotheragency.no
+gilles.j.c.peeters@gmail.com
+vistausss@outlook.com
+christa.e.s@gmail.com
+
+
+/ Norwegian Bokmål
+    * James Doakes <wcttfaf@gmail.com> (163)
+    * Allan Nordhøy <epost@anotheragency.no> (632)
+
+< Catalan
+    + David García Garzón <david.garcia@upf.edu> (951)
+		< David García Garzón (vokimon)
+
+< Dutch
+    * Gilles Peeters <gilles.j.c.peeters@gmail.com> (270)
+		< GTK
+    * Heimen Stoffels <vistausss@outlook.com> (484)
+		< Heimen Stoffels (vistausss@outlook.com)?
+
+* Swedish
+    + Christa Sorenson <christa.e.s@gmail.com> (745)
+
+* Finnish
+
+< Punjabi
+    * Satnam S Virdi <pika10singh@gmail.com> (131)
+		< Satnam S Virdi
+
+* Filipino / Tagalog
+    * John Rey Basilio <hanzogenji83@gmail.com> (93)
+    2 Alba Kaydus <sareli1951@gmail.com> (104)
+    2 Elytra Wixzo <Rioremandaban@gmail.com> (119)
+		< Elytra
+
+< Bulgarian
+    + Voom <halex005@fiu.edu> (110)
+		< Voom
+
+< Chinese (Traditional)
+    * SmallDragon Chen <teacher144123@gmail.com> (912)
+		< Yao-Rong(Dragon)
+
+< Russian
+    * Vladimir <vtopky@mail.ru> (189)
+    * ellta <keygrov@gmail.com> (1553)
+		< avatar232
+    * Mingun <Alexander_Sergey@mail.ru> (3271)
+		< Mingun (Alexander_Sergey@mail.ru)?
+    ? Deleted User <noreply+7247@weblate.org> (9013)
+		< avatar232
+
+< Japanese
+    * Mieru <sanna+hw@dismail.de> (1677)
+		< Balance
+
+* Belarusian
+    * Viktar Vauchkevich <victorenator@gmail.com> (564)
+
+* Thai
+
+* Danish
+
+* Czech
+    * Petr Kadlec <mormegil@centrum.cz> (347)
+		< Petr Kadlec (Mormegil)
+    * Jiri Zizkin Zizka <web@zizkin.com> (4705)
+		> Zizkin (ERST WENN FERTIG ÜBERSETZT)
+
+* Arabic
+
+* Basque
+    + Osoitz <oelkoro@gmail.com> (464)
+
+* Turkish
+    + suhe gul <yoksayilir@gmail.com> (364)
+		< Hüseyin Karadağ
+    + Gökhan Demirden <gkdemirden@gmail.com> (621)
+		< HaritaUstasi
+    * lanet <vaegirinlaneti@gmail.com> (1043)
+		< Samet Develioğlu
+    2 mustafa kodaz <mstfkodaz@gmail.com> (1047)
+		< Mustafa KDZ
+
+
+* Portuguese (Brazil)
+    * Ainsley Ferraz Vieira <ainsleyferraz@gmail.com> (163)
+    * Rui Mendes <xz9@protonmail.com> (177)
+    + Anderson Nogueira <anderson_x123@hotmail.com> (286)
+		< Anderson Nogueira Silva (Andxyz8)
+    * Erick Ferraz Vieira <efverick2@gmail.com> (343)
+		< Erick Ferraz
+    * Lucas Araujo <lucassants2808@gmail.com> (443)
+		< Lucas Araújo dos santos barbosa
+    * Lunovox Heavenfinder <lunovox@disroot.org> (545)
+    * Chacal Ex <chacal_exodius@hotmail.com> (877)
+    * Rafael Henrique Mendes de Oliv <rafaelfifa1988@gmail.com> (1090)
+    * Ueliton Alves Dos Santos <ueliton17071987@gmail.com> (1260)
+		< Ueliton Alves Dos Santos
+    2 Ricardo <contatorms7@tutamail.com> (472)
+		< Ricardo
+
+* Italian
+    * Luca Ballis <sck462@gmail.com> (101)
+    + Gianluca Luparini <gianlucalup@openmailbox.org> (300)
+    * Alessandro Perlo <alessperlo@gmail.com> (2563)
+		< NeoAugustus
+    * roberto <roberto.premoli@tiscali.it> (6629)
+		< Premoli Roberto
+
+* Chinese (Simplified)
+    * zhnxin <zhnxin1992@gmail.com> (103)
+    * suki liao <417368202@qq.com> (127)
+    * huzhanrong <480298199@qq.com> (128)
+    * Elizabeth Sherrock <lizzyd710@gmail.com> (451)
+    * stillsolomon <soloman1991@outlook.com> (1751)
+		< Loman
+    2 zoollcar <zoollcar@qq.com> (255)
+		< Chen-Feng
+    2 卢剑辉 <a505243267@gmail.com> (4084)
+
+* Polish
+    * Piotr Ostrowski <yuppyavd@gmail.com> (124)
+    * Daniel Stasiak <daniels.automatyk@gmail.com> (2239)
+    * Mateusz Mendel <mendelm9@gmail.com> (4986)
+		< mat9117 Mateusz Mendel
+
+* Ukrainian
+    + Yura <skayt55@gmail.com> (120)
+    * uievawkejf <o.kravtsov@ukr.net> (938)
+		> rolled back?
+    * Anatoly Chub <anatolijuschub@gmail.com> (1350)
+		< zawarudo
+
+* German
+?    * Frank Senft <frank.senft@gmail.com> (67)
+    * finnomeno <sodemak@web.de> (74)
+    * Mo Ro <moritzneuemail@gmail.com> (148)
+    * Anonymous <noreply@weblate.org> (160)
+    * Alain <alea@bluemail.ch> (197)
+		< Blackmore
+    * Christian Zink <chris@zink.tv> (823)
+    * Nut Andor <nut.andor@posteo.de> (1131)
+    * Stefanie Beck <mailstosteffi@online.de> (2302)
+
+* French
+    * Sekhmet <s3khm3t@gmail.com> (100)
+		< Sekhmet
+    * thomas <tdegave@gmail.com> (103)
+		< Thomas Degave
+    * Éfrit <efrit@posteo.net> (157)
+		< Éfrit
+    * Charlotte D <charlitte.ducloux@gmail.com> (295)
+    * Zeiko <zeiko.divers@pm.me> (391)
+		< Zeiko
+    + Stéphane Daviet <stephane.daviet@serli.com> (567)
+    * arliantir <fabien2020@lisiecki.fr> (802)
+		< Arliantir
+    * Jean-Pascal Rhir <jprichir@hotmail.com> (1055)
+    + Olivier Dragon <odragon@videotron.ca> (1087)
+    * Lacrom <englishmaninnewyork98@gmail.com> (1461)
+		< Lacrom
+    * Yann <yannubuntu@protonmail.com> (3764)
+		< yannubuntu
+    2 Christophe Nemo <spam@teknow.org> (1105)
+
+* Korean
+    * 김승언 <ksu235@naver.com> (125)
+    * 김현수 <naturezikimi@naver.com> (268)
+    * kty919 <kty919@naver.com> (1474)
+
+* Hungarian
+    * Karakai András <karakai.andras@gmail.com> (97)
+    * Sótanyi Bálint <sotanyibalint01@gmail.com> (104)
+    * Valentin Gergely <gergely.valentin@gmail.com> (203)
+		< Vala
+    * Balázs Úr <balazs@urbalazs.hu> (4973)
+
+* Malay
+
+* Slovenian
+
+* Indonesian
+    * frottle <catatan.kungkong@gmail.com> (454)
+		< Frottle
+    2 Hary Tafianoto <htafia74@gmail.com> (92)
+
+* French (Antigua and Barbuda)
+
+* Portuguese
+    * Rui Mendes <xz9@protonmail.com> (2739)
+    * ssantos <ssantos@web.de> (8436)
+    * Lunovox Heavenfinder <lunovox@disroot.org> (12863)
+
+* Greek
+    * Katerina Katapodi <katerinakatapodi@gmail.com> (201)
+    * NELOK <fotoglou@uom.edu.gr> (809)
+    * Deleted User <noreply+20732@weblate.org> (980)
+
+* Spanish
+    * Daniel-Ømicrón Rodríguez Garcí <omicronrg9@gmail.com> (129)
+    + Michael R. Lawrence <michaellonewolf359@gmail.com> (245)
+    * Evaristo Sintetas <evaristosintetas@gmail.com> (8731)
+    2 Adolfo Jayme Barrientos <fitojb@ubuntu.com> (71)
+    2 Ruben Rodriguez Martin <ruben.rguez.martin@gmail.com> (210)
+		< Ruben Rodriguez Martin
+    2 Echedey <echedeyla@hotmail.com> (353)
+
+
+Mails versendet an:
+(2)
+sareli1951@gmail.com
+Rioremandaban@gmail.com
+mstfkodaz@gmail.com
+contatorms7@tutamail.com
+zoollcar@qq.com
+a505243267@gmail.com
+spam@teknow.org
+htafia74@gmail.com
+fitojb@ubuntu.com
+ruben.rguez.martin@gmail.com
+echedeyla@hotmail.com
+
+(*)
+balazs@urbalazs.hu 
+chacal_exodius@hotmail.com 
+charlitte.ducloux@gmail.com 
+christa.e.s@gmail.com 
+chris@zink.tv 
+daniels.automatyk@gmail.com 
+omicronrg9@gmail.com 
+david.garcia@upf.edu 
+efrit@posteo.net 
+lizzyd710@gmail.com 
+keygrov@gmail.com 
+efverick@gmail.com 
+evaristosintetas@gmail.com 
+sodemak@web.de 
+frank.senft@gmail.com 
+catatan.kungkong@gmail.com 
+gianlucalup@openmailbox.org 
+gilles.j.c.peeters@gmail.com 
+gkdemirden@gmail.com 
+vistausss@outlook.com 
+480298199@qq.com 
+wcttfaf@gmail.com 
+jprichir@hotmail.com 
+web@zizkin.com 
+hanzogenji83@gmail.com 
+karakai.andras@gmail.com 
+katerinakatapodi@gmail.com 
+kty919@naver.com 
+englishmaninnewyork98@gmail.com 
+vaegirinlaneti@gmail.com 
+sck462@gmail.com 
+lucassants2808@gmail.com 
+lunovox@disroot.org 
+mendelm9@gmail.com 
+michaellonewolf359@gmail.com 
+sanna+hw@dismail.de 
+Alexander_Sergey@mail.ru 
+moritzneuemail@gmail.com 
+fotoglou@uom.edu.gr 
+nut.andor@posteo.de 
+odragon@videotron.ca 
+oelkoro@gmail.com 
+mormegil@centrum.cz 
+yuppyavd@gmail.com 
+rafaelfifa1988@gmail.com 
+roberto.premoli@tiscali.it 
+xz9@protonmail.com 
+pika10singh@gmail.com 
+s3khm3t@gmail.com 
+teacher144123@gmail.com 
+sotanyibalint01@gmail.com 
+ssantos@web.de 
+mailstosteffi@online.de 
+stephane.daviet@serli.com 
+soloman1991@outlook.com 
+yoksayilir@gmail.com 
+417368202@qq.com 
+tdegave@gmail.com 
+ueliton17071987@gmail.com 
+o.kravtsov@ukr.net 
+gergely.valentin@gmail.com 
+victorenator@gmail.com 
+vtopky@mail.ru 
+halex005@fiu.edu 
+yannubuntu@protonmail.com 
+skayt55@gmail.com 
+zeiko.divers@pm.me 
+zhnxin1992@gmail.com 
+ksu235@naver.com 
+naturezikimi@naver.comAdd contact
